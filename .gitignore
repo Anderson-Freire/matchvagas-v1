@@ -1,0 +1,29 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+*.log
+
+# Configurações sensíveis
+appsettings.Development.json
+appsettings.*.json
+!appsettings.json
+
+# Migrations geradas (opcional — alguns projetos versionam)
+# Migrations/
+
+# Rider / JetBrains
+.idea/
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# NuGet
+*.nupkg
+packages/
