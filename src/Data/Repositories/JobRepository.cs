@@ -16,6 +16,8 @@ namespace src.Data.Repositories
             .Include(j => j.Location)
             .Include(j => j.JobSkills)
                 .ThenInclude(js => js.Skill)
+            .Include(j => j.JobBenefits)
+                .ThenInclude(jb => jb.Benefit)
             .SingleOrDefaultAsync(x => x.Id == id, cancellationToken);
 
         public async Task<IReadOnlyList<Job>> GetAllAsync(CancellationToken cancellationToken = default)
@@ -24,6 +26,8 @@ namespace src.Data.Repositories
             .Include(j => j.Location)
             .Include(j => j.JobSkills)
                 .ThenInclude(js => js.Skill)
+            .Include(j => j.JobBenefits)
+                .ThenInclude(jb => jb.Benefit)
             .ToListAsync(cancellationToken);
 
         public async Task<Job> GetByOriginalUrlAsync(string originalUrl, CancellationToken cancellationToken = default)

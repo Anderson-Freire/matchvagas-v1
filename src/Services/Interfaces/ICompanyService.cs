@@ -11,13 +11,10 @@ namespace src.Services.Interfaces
     {
         public Task<IReadOnlyList<CompanyOutputDto>> GetAllAsync(
             CancellationToken cancellationToken = default);
-
         public Task<CompanyOutputDto> GetByIdAsync(Guid id,
              CancellationToken cancellationToken = default);
-
         public Task<CreateCompanyOutputDto> CreateAsync(CreateCompanyInputDto createCompanyDto,
             CancellationToken cancellationToken = default);
-
         public Task<UpdateCompanyOutputDto> UpdateAsync(Guid id, UpdateCompanyInputDto updateCompanyDto,
             CancellationToken cancellationToken = default);
         public Task DeleteAsync(Guid id, CancellationToken cancellationToken = default);

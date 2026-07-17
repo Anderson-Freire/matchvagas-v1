@@ -25,7 +25,8 @@ namespace src.Modules.Mappers
                 PublishedAt = job.PublishedAt,
                 IsActive = job.IsActive,
                 CreatedAt = job.CreatedAt,
-                Skills = [.. job.JobSkills.Select(js => js.Skill.MapToDto())]
+                Skills = [.. job.JobSkills.Select(js => js.Skill.MapToDto())],
+                Benefits = [.. job.JobBenefits.Select(jb => jb.Benefit.MapToDto())],
             };
         }
     }

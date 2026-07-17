@@ -22,8 +22,12 @@ namespace src.Modules.Entities
 
         public DateTime PublishedAt { get; set; }
         public bool IsActive { get; set; } = true;
+
         public List<JobSkill> JobSkills { get; set; } = [];
+
         public Guid? LocationId { get; set; }
         public Location Location { get; set; }
+
+        public List<JobBenefit> JobBenefits { get; set; } = [];
     }
 }

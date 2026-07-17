@@ -16,6 +16,8 @@ namespace src.Data
         public DbSet<SearchHistory> SearchHistories => Set<SearchHistory>();
         public DbSet<JobMatch> JobMatches => Set<JobMatch>();
         public DbSet<Location> Locations => Set<Location>();
+        public DbSet<Benefit> Benefits => Set<Benefit>();
+        public DbSet<JobBenefit> JobBenefits => Set<JobBenefit>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
             => modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);

@@ -27,7 +27,7 @@ namespace src.Controllers
         }
 
         [HttpDelete("{id:guid}")]
-        public async Task<IActionResult> DeleteCompany(Guid id, CancellationToken cancellationToken)
+        public async Task<IActionResult> DeleteSkill(Guid id, CancellationToken cancellationToken)
         {
             await skillService.DeleteAsync(id, cancellationToken);
             return NoContent();

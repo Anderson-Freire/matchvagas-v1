@@ -91,6 +91,11 @@ namespace src.Data.Configuration
                 .WithMany()
                 .HasForeignKey(e => e.LocationId)
                 .OnDelete(DeleteBehavior.SetNull);
+
+            builder.HasMany(e => e.JobBenefits)
+                .WithOne(jb => jb.Job)
+                .HasForeignKey(jb => jb.JobId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

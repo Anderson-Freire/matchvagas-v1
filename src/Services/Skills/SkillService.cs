@@ -45,7 +45,7 @@ namespace src.Services
         public async Task DeleteAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var skill = await skillRepository.GetByIdAsync(id, cancellationToken)
-                    ?? throw new KeyNotFoundException($"Empresa {id} não encontrada.");
+                    ?? throw new KeyNotFoundException($"Competência {id} não encontrada.");
 
 
             await skillRepository.DeleteAsync(skill, cancellationToken);

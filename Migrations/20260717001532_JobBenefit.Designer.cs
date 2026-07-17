@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NetTopologySuite.Geometries;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
@@ -12,9 +13,11 @@ using src.Data;
 namespace metvagas.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260717001532_JobBenefit")]
+    partial class JobBenefit
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -613,7 +616,7 @@ namespace metvagas.Migrations
                         .IsRequired();
 
                     b.HasOne("src.Modules.Entities.Job", "Job")
-                        .WithMany("JobBenefits")
+                        .WithMany()
                         .HasForeignKey("JobId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -703,8 +706,6 @@ namespace metvagas.Migrations
 
             modelBuilder.Entity("src.Modules.Entities.Job", b =>
                 {
-                    b.Navigation("JobBenefits");
-
                     b.Navigation("JobSkills");
                 });
 

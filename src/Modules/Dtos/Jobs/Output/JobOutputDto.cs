@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Modules.Dtos.Skills.Output;
+using src.Modules.Dtos.Benefits.Output;
 using src.Modules.Dtos.Companies.Output;
 using src.Modules.Dtos.Location.Output;
 
@@ -24,8 +25,11 @@ namespace src.Modules.Dtos.Jobs.Output
 
         public DateTime PublishedAt { get; init; }
         public bool IsActive { get; init; }
+
         public List<SkillOutputDto> Skills { get; init; }
 
         public LocationOutputDto Location { get; init; }
+
+        public List<BenefitOutputDto> Benefits { get; init; }
     }
 }

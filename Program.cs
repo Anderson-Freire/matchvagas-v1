@@ -58,6 +58,12 @@ builder.Services.AddScoped<IJobMatchService, JobMatchService>();
 builder.Services.AddScoped<ILocationRepository, LocationRepository>();
 builder.Services.AddScoped<ILocationService, LocationService>();
 
+builder.Services.AddScoped<IBenefitRepository, BenefitRepository>();
+builder.Services.AddScoped<IBenefitService, BenefitService>();
+
+builder.Services.AddScoped<IJobBenefitRepository, JobBenefitRepository>();
+builder.Services.AddScoped<IJobBenefitService, JobBenefitService>();
+
 var app = builder.Build();
 
 app.UseExceptionHandler(appError =>

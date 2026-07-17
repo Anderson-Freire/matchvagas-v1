@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NetTopologySuite.Geometries;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
@@ -12,9 +13,11 @@ using src.Data;
 namespace metvagas.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260716031008_Benefit")]
+    partial class Benefit
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -260,28 +263,6 @@ namespace metvagas.Migrations
                         .HasDatabaseName("ix_jobs_original_url");
 
                     b.ToTable("jobs", (string)null);
-                });
-
-            modelBuilder.Entity("src.Modules.Entities.JobBenefit", b =>
-                {
-                    b.Property<Guid>("BenefitId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("benefit_id");
-
-                    b.Property<Guid>("JobId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("job_id");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp")
-                        .HasColumnName("created_at")
-                        .HasComment("Data de criacao");
-
-                    b.HasKey("BenefitId", "JobId");
-
-                    b.HasIndex("JobId");
-
-                    b.ToTable("job_benefits", (string)null);
                 });
 
             modelBuilder.Entity("src.Modules.Entities.JobMatch", b =>
@@ -604,25 +585,6 @@ namespace metvagas.Migrations
                     b.Navigation("Location");
                 });
 
-            modelBuilder.Entity("src.Modules.Entities.JobBenefit", b =>
-                {
-                    b.HasOne("src.Modules.Entities.Benefit", "Benefit")
-                        .WithMany()
-                        .HasForeignKey("BenefitId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("src.Modules.Entities.Job", "Job")
-                        .WithMany("JobBenefits")
-                        .HasForeignKey("JobId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Benefit");
-
-                    b.Navigation("Job");
-                });
-
             modelBuilder.Entity("src.Modules.Entities.JobMatch", b =>
                 {
                     b.HasOne("src.Modules.Entities.Job", "Job")
@@ -703,8 +665,6 @@ namespace metvagas.Migrations
 
             modelBuilder.Entity("src.Modules.Entities.Job", b =>
                 {
-                    b.Navigation("JobBenefits");
-
                     b.Navigation("JobSkills");
                 });
 
