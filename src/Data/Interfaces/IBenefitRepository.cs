@@ -13,7 +13,5 @@ namespace src.Data.Interfaces
         public Task CreateAsync(Benefit benefit, CancellationToken cancellationToken = default);
         public Task DeleteAsync(Benefit benefit, CancellationToken cancellationToken = default);
         public Task<Benefit> GetByNormalizedNameAsync(string normalizedName, CancellationToken cancellationToken = default);
-
-
     }
 }

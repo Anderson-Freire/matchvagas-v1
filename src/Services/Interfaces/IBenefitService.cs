@@ -14,6 +14,5 @@ namespace src.Services.Interfaces
         public Task<CreateBenefitOutputDto> CreateAsync(CreateBenefitInputDto createBenefitDto,
             CancellationToken cancellationToken = default);
         public Task DeleteAsync(Guid id, CancellationToken cancellationToken = default);
-
     }
 }

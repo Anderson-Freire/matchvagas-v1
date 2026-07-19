@@ -4,7 +4,7 @@ using src.Modules.Enums;
 
 namespace src.Modules.Dtos.Users.Output
 {
-    public sealed class CreateUserOutputDto : BaseDto
+    public class CreateUserOutputDto : BaseDto
     {
         public string Name { get; init; }
         public string Email { get; init; }

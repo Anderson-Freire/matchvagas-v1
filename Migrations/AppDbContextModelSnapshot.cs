@@ -94,7 +94,7 @@ namespace metvagas.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Benefits");
+                    b.ToTable("Benefits", (string)null);
                 });
 
             modelBuilder.Entity("src.Modules.Entities.Company", b =>
